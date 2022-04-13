@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-   private $posts = [
-       ['id' => 1, 'title' => 'first post', 'posted_by' => 'ahmed', 'created_at' => '2022-04-11'],
-       ['id' => 2, 'title' => 'second post', 'posted_by' => 'mohamed', 'created_at' => '2022-04-11'],
-   ];
+   private $posts ;
+  public function __construct(){
+     $this->posts = [
+        ['id' => 1, 'title' => 'first post', 'posted_by' => 'ahmed', 'created_at' => '2022-04-11'],
+        ['id' => 2, 'title' => 'second post', 'posted_by' => 'mohamed', 'created_at' => '2022-04-11'],
+    ];
+
+
+   }
     public function index()
     {
 
@@ -34,8 +39,8 @@ class PostController extends Controller
             "created_at" => request()['createdat']
         ];
 
-
-       array_push($this->posts,$post);
+            // $this->posts = array_push($this->posts,$post);
+            $this->posts[count($this->posts)] = $post;
 
 
          return view('posts.index',['allPosts' => $this->posts]);
