@@ -17,16 +17,16 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ( $allPosts as  $index=>$post)
+            @foreach ( $allPosts as $post)
               <tr>
-                <td>{{$index}}</th>
-                <td>{{$post['title']}}</td>
-                <td>{{$post['posted_by']}}</td>
-                <td>{{$post['created_at']}}</td>
+                <td>{{$post->id}}</th>
+                <td>{{$post->title}}</td>
+                <td>{{$post->description}}</td>
+                <!-- <td>{{$post['created_at']}}</td> -->
                 <td style="text-align: center">
-                    <a href="{{route('posts.show', [implode(', ', $post)])}}" class="btn btn-info">View</a>
-                    <a href="{{route('posts.edit',['post'=>$index])}}" class="btn btn-primary">Edit</a>
-                    <form action="{{route('posts.destroy',['post'=>$index])}}" method="post" class="d-inline-block">
+                    <a href="{{route('posts.show', ['post' => $post['id']])}}" class="btn btn-info">View</a>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <form action="#" method="post" class="d-inline-block">
                     @csrf
                     @method('DELETE')
                     <button href="" onclick="return confirm('Are you sure, you want Delete?')"  class="btn btn-danger">Delete</button>

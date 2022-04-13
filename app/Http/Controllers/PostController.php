@@ -3,22 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
-   private $posts ;
-  public function __construct(){
-     $this->posts = [
-        ['id' => 1, 'title' => 'first post', 'posted_by' => 'ahmed', 'created_at' => '2022-04-11'],
-        ['id' => 2, 'title' => 'second post', 'posted_by' => 'mohamed', 'created_at' => '2022-04-11'],
-    ];
+//    private $posts ;
+//   public function __construct(){
+//      $this->posts = [
+//         ['id' => 1, 'title' => 'first post', 'posted_by' => 'ahmed', 'created_at' => '2022-04-11'],
+//         ['id' => 2, 'title' => 'second post', 'posted_by' => 'mohamed', 'created_at' => '2022-04-11'],
+//     ];
 
 
-   }
+ //  }
     public function index()
     {
+        $posts = Post::all();
 
-       return view('posts.index',['allPosts'=>$this->posts]);
+
+
+       return view('posts.index',['allPosts'=>$posts]);
 
 
     }
