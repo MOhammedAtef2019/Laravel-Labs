@@ -55,11 +55,12 @@ class PostController extends Controller
 
     public function show($post)
     {
-        $post1 = explode(', ', $post);
+
+         $dbPost = Post::find($post);
 
 
         return view('posts.show',[
-            'post'=>$post1,
+            'post'=>$dbPost,
         ]);
     }
 
