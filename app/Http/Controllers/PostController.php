@@ -68,20 +68,24 @@ class PostController extends Controller
     }
 
     public function edit($id){
+        $postToEdit = post::find($id);
+        $users = User::all();
 
+        return view('posts.edit',['post'=>$postToEdit,'users'=>$users]);
 
-        $post=$this->posts[$id];
-
-        return view('posts.edit',['post'=>$post]);
     }
 
     public function update($id,Request $request){
 
-        $post=$request->all();
+        $postToUpdate = post::find($id);
+        $postToUpdate->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'user_id' => $request->post_creator,
+        ]);
 
-        $this->posts[$id]=$post;
-
-        return view('posts.index',['allPosts' => $this->posts]);
+        // return to_route('posts.index');
+        return redirect()->route('posts.index');
 
     }
 

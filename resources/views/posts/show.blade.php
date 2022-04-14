@@ -28,7 +28,7 @@
       </div>
       <div class="p-2">
       <h5 class="card-title" style="font-size:18px;display:inline;">Created At:-</h5>
-    <p class="card-text" style="display:inline;">{{$post[3]}}</p>
+    <p class="card-text" style="display:inline;">{{$post->created_at}}</p>
       </div>
 
 
