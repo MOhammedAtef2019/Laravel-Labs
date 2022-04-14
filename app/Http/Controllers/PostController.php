@@ -39,24 +39,21 @@ class PostController extends Controller
 
     public function store()
     {
-        $postData=request()->all();
+        $data = request()->all();
 
-        $post=[
-            "id"=>count($this->posts )+1,
-            "title" => request()["title"],
-            "posted_by" => request()['postedby'],
-            "created_at" => request()['createdat']
-        ];
+        Post::create([
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'user_id' => $data['post_creator'],
 
-            // $this->posts = array_push($this->posts,$post);
-            $this->posts[count($this->posts)] = $post;
+        ]);
 
-
-         return view('posts.index',['allPosts' => $this->posts]);
-
-
-
+        return to_route('posts.index');
     }
+
+
+
+
 
     public function show($post)
     {
