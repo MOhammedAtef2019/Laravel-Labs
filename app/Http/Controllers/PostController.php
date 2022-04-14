@@ -49,7 +49,7 @@ class PostController extends Controller
 
         ]);
 
-        return to_route('posts.index');
+        return redirect()->route('posts.index');;
     }
 
 
