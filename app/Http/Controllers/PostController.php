@@ -23,6 +23,7 @@ class PostController extends Controller
         $posts = Post::all();
 
 
+        $posts = Post::paginate(4);
 
        return view('posts.index',['allPosts'=>$posts]);
 

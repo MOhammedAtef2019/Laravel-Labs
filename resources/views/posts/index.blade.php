@@ -40,4 +40,17 @@
               @endforeach
             </tbody>
           </table>
+            <!-- Pagination  -->
+            <div class="flex justify-center items-center mt-10">
+              {!! $allPosts->links() !!}
+          </div>
 @endsection
+<style>
+  svg{
+    width:50px;
+  }
+  nav p{
+    margin: 20px 10px;
+  }
+</style>
+
