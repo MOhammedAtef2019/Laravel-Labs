@@ -88,9 +88,12 @@ class PostController extends Controller
 
     public function destroy ($id){
 
-        unset($this->posts[$id]);
+        $postToDelete = Post::find($id);
+        $postToDelete->delete();
+        // $postToDelete->Comments()->delete();
 
-       return view('posts.index',['allPosts' => $this->posts]);
+        return redirect()->route('posts.index');
+
 
        }
 }
