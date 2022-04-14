@@ -15,7 +15,7 @@
         </button>
         <div class="collapse navbar-collapse" style="color:white;"  id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" style="color:white;" href="#">All Posts</a>
+            <a class="nav-link active" style="color:white;" href="{{route('posts.index')}}">All Posts</a>
           </div>
         </div>
       </nav>
