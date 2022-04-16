@@ -23,6 +23,7 @@
               <tr>
                 <td>{{$post->id}}</th>
                 <td>{{$post->title}}</td>
+<<<<<<< HEAD
                 <td>{{$post->slug}}</td>
                 <td>{{$post->user ? $post->user->name : 'Not Found'}}</td>
                 <td>{{$post->created_at->format('Y-m-d')}}</td>
@@ -31,6 +32,10 @@
                 <img class="image rounded-circle" src="{{asset('/storage/images/'.$post->avatar)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
                 @endif
                 </td>
+=======
+                <td>{{$post->user ? $post->user->name : 'Not Found'}}</td>
+                <td>{{$post->created_at->format('Y-m-d')}}</td>
+>>>>>>> dc95090a04d204ec83cfb04c0c473be1807d4cfc
 
                 <td style="text-align: center">
                     <a href="{{route('posts.show', ['post' => $post['id']])}}" class="btn btn-info">View</a>
@@ -55,7 +60,11 @@
 @endsection
 <style>
   svg{
+<<<<<<< HEAD
     width:30px;
+=======
+    width:50px;
+>>>>>>> dc95090a04d204ec83cfb04c0c473be1807d4cfc
   }
   nav p{
     margin: 20px 10px;

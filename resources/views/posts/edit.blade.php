@@ -3,7 +3,11 @@
 @section('title')Create @endsection
 
 @section('content')
+<<<<<<< HEAD
         <form class="col-6 mx-auto my-5" method="POST" action="{{route('posts.update',['post' => $post->id])}}" enctype="multipart/form-data">
+=======
+        <form class="col-6 mx-auto my-5" method="POST" action="{{route('posts.update',['post' => $post->id])}}">
+>>>>>>> dc95090a04d204ec83cfb04c0c473be1807d4cfc
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -25,6 +29,7 @@
               @endforeach
             </select>
             </div>
+<<<<<<< HEAD
             @if($post->avatar)
 
             <div class="mb-3">
@@ -32,6 +37,8 @@
                 <input id="avatar" type="file" class="form-control" name="avatar">
             </div>
             @endif
+=======
+>>>>>>> dc95090a04d204ec83cfb04c0c473be1807d4cfc
 
 
             <button type="submit" class="btn btn-success">update Post</button>

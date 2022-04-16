@@ -16,7 +16,11 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->title(),
             'description' => $this->faker->text(),
+<<<<<<< HEAD
             'user_id' => $this->faker->numberBetween(1, 4),
+=======
+            'user_id' => $this->faker->numberBetween(1, 3),
+>>>>>>> dc95090a04d204ec83cfb04c0c473be1807d4cfc
 
         ];
     }

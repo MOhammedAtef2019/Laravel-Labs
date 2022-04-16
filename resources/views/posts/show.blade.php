@@ -15,6 +15,7 @@
 </div>
 <div class="card bg-light mt-5" style="max-width: 18rem,text-align:center;">
 
+<<<<<<< HEAD
     <div class="card-header">Post Creator Info</div>
 
     <div class="card-body">
@@ -36,6 +37,22 @@
       <div class="p-2">
       <h5 class="card-title" style="font-size:18px;display:inline;">Slug:-</h5>
     <p class="card-text" style="display:inline;">{{$post->slug}}</p>
+=======
+  <div class="card-header">Post Creator Info</div>
+
+  <div class="card-body">
+      <div class="p-2">
+       <h5 class="card-title" style="font-size:18px;display:inline;">Title:-</h5>
+       <p class="card-text" style="display:inline;">{{$post->title}}</p>
+      </div>
+      <div class="p-2">
+      <h5 class="card-title" style="font-size:18px;display:inline;">posted By:-</h5>
+      <p class="card-text" style="display:inline;">{{$post->description}}</p>
+      </div>
+      <div class="p-2">
+      <h5 class="card-title" style="font-size:18px;display:inline;">Created At:-</h5>
+    <p class="card-text" style="display:inline;">{{$post->created_at->format('l jS \of F Y h:i:s A')}}</p>
+>>>>>>> dc95090a04d204ec83cfb04c0c473be1807d4cfc
       </div>
      <!-- Comments -->
 <div class="card my-4">
@@ -48,7 +65,11 @@
                 <div class='my-4 border p-4 rounded-lg'>
                     <h2 class='text-lg fw-bold'>{{$comment->user->name}}</h2>
                     <p class='text-lg my-2 fs-2'>{{$comment->body}}</p>
+<<<<<<< HEAD
                     <span class='text-sm'>Last Updated At: {{$comment->updated_at->format('l jS \of F Y h:i:s A')}}</span>
+=======
+                    <span class='text-sm'>Last Updated At: {{$comment->updated_at->toDayDateTimeString()}}</span>
+>>>>>>> dc95090a04d204ec83cfb04c0c473be1807d4cfc
                     <div class="mt-4  flex">
                         <form class="text-center d-inline" method='POST' action="{{route('comments.delete', ['postId' => $post['id'], 'commentId' => $comment->id])}}">
                             @csrf
