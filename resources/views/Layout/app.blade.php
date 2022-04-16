@@ -15,13 +15,25 @@
         </button>
         <div class="collapse navbar-collapse" style="color:white;"  id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" style="color:white;" href="#">All Posts</a>
+            <a class="nav-link active" style="color:white;" href="{{route('posts.index')}}">All Posts</a>
           </div>
         </div>
       </nav>
     <div class="container">
 
-        @yield('content')
+        <main class="p-4">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @yield('content')
+        </main>
 
     </div>
 
