@@ -35,7 +35,7 @@ class PruneOldPostsJob implements ShouldQueue
     public function handle()
     {
         //
-        Post::table('posts')->where('datetime', '<', Carbon::now()->format('Y-m-d H:i:s'))->delete();
+        Post::query()->where('datetime', '<', Carbon::now()->format('Y-m-d H:i:s'))->delete();
 
     }
 }
