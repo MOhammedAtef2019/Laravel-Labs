@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +42,34 @@ Route::patch('/comments/{postId}/{commentId}', [CommentController::class, 'edit'
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'posts.index'])->name('passwords.login');
+
+
+// Social Login
+Route::get('/auth/redirect/{provider}', [SocialController::class, 'redirect']);
+Route::get('/auth/callback/{provider}', [SocialController::class, 'callback']);
+
+// Route::get('/auth/callback', function () {
+//     $githubUser = Socialite::driver('github')->user();
+//     $user = User::where('github_id', $githubUser->id)->first();
+//     dd($user);
+
+//     if ($user) {
+//         $user->update([
+//             'github_token' => $githubUser->token,
+//             'github_refresh_token' => $githubUser->refreshToken,
+//         ]);
+//     } else {
+//         $user = User::create([
+//             'name' => $githubUser->name,
+//             'email' => $githubUser->email,
+//             'github_id' => $githubUser->id,
+//             'github_token' => $githubUser->token,
+//             'github_refresh_token' => $githubUser->refreshToken,
+//         ]);
+//     }
+
+//     Auth::login($user);
+
+//     return redirect('/dashboard');
+// });
+
