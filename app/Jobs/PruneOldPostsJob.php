@@ -21,10 +21,10 @@ class PruneOldPostsJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Post $post)
+    public function __construct()
     {
         //
-        $this->post = $post;
+
     }
 
     /**
@@ -35,7 +35,9 @@ class PruneOldPostsJob implements ShouldQueue
     public function handle()
     {
         //
-        Post::query()->where('datetime', '<', Carbon::now()->format('Y-m-d H:i:s'))->delete();
+        $now = Carbon::now();
+        $twoYearsAgo = $now->subYears(2);
+        Post::where('created_at', '<', (string) $twoYearsAgo)->delete();
 
     }
 }
