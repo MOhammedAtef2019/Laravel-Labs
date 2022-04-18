@@ -46,6 +46,7 @@ class PostController extends Controller
         //     'description' => 'required|min:10',
         //     'post_creator' => 'required|exists:users,id',
         // ]);
+
         $data = request()->all();
 
         if ($request->hasFile('avatar')) {
